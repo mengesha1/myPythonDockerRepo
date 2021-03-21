@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-    registry = "738712266740.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo"
+    registry = "73---.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo"
     }
     stages {
         stage('Cloning Git'){
@@ -26,7 +26,7 @@ pipeline {
      steps{  
          script {
                 sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 738712266740.dkr.ecr.us-east-1.amazonaws.com'
-                sh 'docker push 738712266740.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
+                sh 'docker push 73---.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
          }
         }
       }
@@ -43,7 +43,7 @@ pipeline {
     stage('Docker Run') {
      steps{
          script {
-                sh 'docker run -d -p 8096:5000 --rm --name mypythonContainer 738712266740.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
+                sh 'docker run -d -p 8096:5000 --rm --name mypythonContainer 73---.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
             }
       }
     }
